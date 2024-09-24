@@ -13,6 +13,9 @@ class Quote:
     def info(self):
         return self.quote.info
 
+    def get_name(self):
+        return self.quote.info['shortName']
+
     # get the symbol
     def get_symbol(self):
         return self.quote.info['symbol']
