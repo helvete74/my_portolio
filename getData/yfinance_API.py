@@ -20,8 +20,14 @@ class Quote:
     def get_symbol(self):
         return self.quote.info['symbol']
 
-    # get the previousClose
+    def get_exchange(self):
+        return self.quote.info['exchange']
+
+
     def get_previous_close(self):
+        """
+        Previous close price from info
+        """
         return self.quote.info['previousClose']
 
     # get historical market data
@@ -30,8 +36,12 @@ class Quote:
         hist = self.quote.history(period=period)
         return hist
 
-    # get the Last close market value
+
     def get_last_close(self):
+        """
+        Last close from historical data
+        return last_close_value, last_close_date
+        """
         df_data1 = self.historical_market_data("1d")
         last_close_value = float(df_data1['Close'].iloc[-1])
         last_close_date = df_data1['Close'].index[-1]
