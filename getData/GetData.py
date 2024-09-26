@@ -28,8 +28,8 @@ if __name__ == '__main__':
         # insert info in quote_info
 
         cur.execute("DELETE FROM quote_info WHERE symbol=?", (quote.get_symbol(),) )
-        cur.execute("INSERT into quote_info(symbol, exchange, last_close_price, last_close_date, short_name)"
-                    "VALUES(?,?,?,?,?)",(quote.get_symbol(), quote.get_exchange(),last_close_value, yesterday_date_str, quote.get_name()) )
+        cur.execute("INSERT into quote_info(symbol, exchange, last_close_price, last_close_date, short_name, currency)"
+                    "VALUES(?,?,?,?,?,?)",(quote.get_symbol(), quote.get_exchange(),last_close_value, yesterday_date_str, quote.get_name(), quote.get_currency()) )
 
     conn.commit()
     cur.close()

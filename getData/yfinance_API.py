@@ -23,6 +23,9 @@ class Quote:
     def get_exchange(self):
         return self.quote.info['exchange']
 
+    def get_currency(self):
+        return self.quote.info['currency']
+
 
     def get_previous_close(self):
         """
